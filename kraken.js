@@ -6,9 +6,9 @@ var querystring	= require('querystring');
  * KrakenClient connects to the Kraken.com API
  * @param {String} key    API Key
  * @param {String} secret API Secret
- * @param {String} [otp]  Two-factor password (optional) (also, doesn't work)
+ * @param {Object} options Configuration options
  */
-function KrakenClient(key, secret, otp) {
+function KrakenClient(key, secret, options) {
 	var self = this;
 
 	var config = {
@@ -16,8 +16,7 @@ function KrakenClient(key, secret, otp) {
 		version: '0',
 		key: key,
 		secret: secret,
-		otp: otp,
-		timeoutMS: 5000
+		timeoutMS: (options.timeout) ? options.timeout ? 15000
 	};
 
 	/**

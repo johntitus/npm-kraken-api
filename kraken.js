@@ -16,7 +16,7 @@ function KrakenClient(key, secret, options) {
 		version: '0',
 		key: key,
 		secret: secret,
-		timeoutMS: (options.timeout) ? options.timeout : 15000
+		timeoutMS: (options && options.timeout) ? options.timeout : 15000
 	};
 
 	/**
